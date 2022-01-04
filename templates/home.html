@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "nav_links.html" import nav_links %}
+
+
+
+{% block title %} Home {% endblock %}
+
+{% block nav %} {{nav_links(user)}} {% endblock %}
+
+
+{% block main %}
+<div class="container container-form my-5">
+    <div class="card-header text-dark bg-light">
+        <h4>Answered Questions</h4>
+    </div>
+    {% for question in questions %}
+    <a href="{{ url_for('question', question_id=question['question_id']) }}">
+        <div class="card-body background-orange mb-1 mt-1">
+            <h5 class="card-title text-dark">{{ question["question_text"] }}</h5>
+            <p class="card-text text-dark">Asked by: <span>{{ question["asker_name"] }}</span></p>
+            <p class="card-text" style="color: #035575;">Answered by: <span>{{ question["expert_name"] }}</span></p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

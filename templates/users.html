@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "nav_links.html" import nav_links %}
+
+
+
+{% block title %} Home {% endblock %}
+
+{% block nav %} {{nav_links(user)}} {% endblock %}
+
+
+{% block main %}
+<div class="container container-form my-5">
+    <div class="card border-0 background-base mx-auto" style="width: 80%;">
+        <div class="card-header text-dark py-1" style="background-color: #00AA9E;">
+            <h4>Users</h4>
+            <p>Click to promote to expert or demote to user</p>
+        </div>
+
+        {% for user in users %}
+        <a href="{{ url_for('promote', user_id=user.id) }}" class="active">
+            <div class="card-body background-orange my-1 py-1" {% if user['expert'] == 1 %}
+                style="background-color: #12c9bd;" {% endif %}>
+                <h5 class="card-title text-dark">{{ user['name'] }}</h5>
+                {% if user['expert'] == 1 %}
+                <small class="text-light">expert</small>
+                {% else %}
+                <small class="text-dark">user</small>
+                {% endif %}
+                {% if user['admin'] == 1 %}
+                <small class="text-light">admin</small>
+                {% endif %}
+            </div>
+        </a>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

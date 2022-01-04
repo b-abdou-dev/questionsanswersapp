@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% from "nav_links.html" import nav_links %}
+
+
+
+{% block title %} Home {% endblock %}
+
+{% block nav %} {{nav_links(user)}} {% endblock %}
+
+
+{% block main %}
+
+<div class="container container-form my-5">
+    <div class="card-body text-dark" style="background-color: #c9b8b6;">
+        <h4>{{ question["question_text"] }}</h4>
+        <p class="card-text text-dark">Asked by: <span>{{ question["asker_name"] }}</span></p>
+    </div>
+    <div class="card-body mb-1 mt-1" style="background-color: #83e7e1;">
+        <h4 class="card-title text-dark">{{ question["answer_text"] }}</h4>
+        <p class="card-text" style="color: #035575;">Answered by: <span>{{ question["expert_name"] }}</span></p>
+    </div>
+</div>
+
+
+{% endblock %}

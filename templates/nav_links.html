@@ -1,0 +1,39 @@
+{% macro nav_links(user) %}
+<ul class="navbar-nav mx-auto">
+    <li class="nav-element">
+        <a class="nav-link brand" href="{{ url_for('index') }}">Question & Answer</a>
+    </li>
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+    </li>
+    {% if not user %}
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+    </li>
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+    </li>
+    {% endif %}
+    {% if user and user["admin"] == 0 and user["expert"] == 0 %}
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('ask') }}">Ask Question</a>
+    </li>
+    {% endif %}
+    {% if user and user["expert"] == 1 %}
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('unanswered') }}">Answer Question</a>
+    </li>
+    {% endif %}
+    {% if user and user["admin"] == 1 %}
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('users') }}">User Setup</a>
+    </li>
+    {% endif %}
+    {% if user %}
+    <li class="nav-element">
+        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+    </li>
+    {% endif %}
+</ul>
+
+{% endmacro %}

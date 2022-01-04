@@ -1,0 +1,68 @@
+body,
+.background-base {
+    background-color: salmon !important;
+}
+
+nav.navbar,
+.card-header {
+    background-color: antiquewhite !important;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    color: rgb(34, 90, 92) !important;
+}
+
+.nav-element {
+    margin-right: 2rem;
+}
+
+.container-form {
+    padding-top: 2rem;
+}
+
+.background-orange {
+    background-color: sandybrown;
+}
+
+label {
+    font-weight: bold;
+}
+
+.card-header {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.container-table {
+    margin-top: 2rem;
+}
+
+.btn-info {
+    font-size: 1rem;
+}
+
+
+
+
+.table-borderless>tbody>tr>td,
+.table-borderless>tbody>tr>th,
+.table-borderless>tfoot>tr>td,
+.table-borderless>tfoot>tr>th,
+.table-borderless>thead>tr>td,
+.table-borderless>thead>tr>th {
+    border: none;
+}
+
+th.btn,
+span.btn {
+    cursor: default !important;
+}
+
+tr.border-bottom {
+    border-color: rgba(95, 158, 160, 0.3) !important;
+}
+
+a:hover {
+    text-decoration: none;
+}

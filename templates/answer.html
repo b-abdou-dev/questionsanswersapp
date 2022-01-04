@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "nav_links.html" import nav_links %}
+
+
+
+{% block title %} Home {% endblock %}
+
+{% block nav %} {{nav_links(user)}} {% endblock %}
+
+
+{% block main %}
+
+<div class="container container-form my-5">
+    <div class="card border border-primary mx-auto pb-4" style="width: 80%;">
+        <div class="card-header text-dark bg-light">
+            <h4>{{question["question_text"]}}</h4>
+        </div>
+        <div class="container py-3 px-5">
+            <form class="mt-3" action="{{ url_for('answer', question_id=question['id']) }}" method="POST">
+                <div class="form-group row">
+                    <label for="answerInput" class="col-sm-2 col-form-label ">
+                        <h5>Answer</h5>
+                    </label>
+                    <div class="col-sm-10 pl-0">
+                        <textarea class="form-control" cols="30" rows="10" name="answer" id="answerInput"
+                            placeholder="Answer the question"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn background-base btn-md font-weight-bold px-4 py-2">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
