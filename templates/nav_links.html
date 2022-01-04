@@ -14,17 +14,17 @@
         <a class="nav-link" href="{{ url_for('register') }}">Register</a>
     </li>
     {% endif %}
-    {% if user and user["admin"] == 0 and user["expert"] == 0 %}
+    {% if user and not user["admin"] and not user["expert"] %}
     <li class="nav-element">
         <a class="nav-link" href="{{ url_for('ask') }}">Ask Question</a>
     </li>
     {% endif %}
-    {% if user and user["expert"] == 1 %}
+    {% if user and user["expert"] %}
     <li class="nav-element">
         <a class="nav-link" href="{{ url_for('unanswered') }}">Answer Question</a>
     </li>
     {% endif %}
-    {% if user and user["admin"] == 1 %}
+    {% if user and user["admin"] %}
     <li class="nav-element">
         <a class="nav-link" href="{{ url_for('users') }}">User Setup</a>
     </li>
