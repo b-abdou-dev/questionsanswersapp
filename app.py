@@ -231,8 +231,8 @@ def ask():
         return redirect(url_for("index"))
 
     # getting all experts from database
-    cur_experts = db.execute("select id, name from users where expert = True")
-    experts_db = cur_experts.fetchall()
+    db.execute("select id, name from users where expert = True")
+    experts_db = db.fetchall()
 
     return render_template("ask.html", user=user_properties, experts=experts_db)
 
